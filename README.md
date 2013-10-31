@@ -1,5 +1,7 @@
 # grunt-rasterize
 
+[![Build Status](https://travis-ci.org/logankoester/grunt-rasterize.png?branch=master)](https://travis-ci.org/logankoester/grunt-rasterize)
+
 > Rasterize SVG graphics at various sizes using [Inkscape](http://inkscape.org/)
 
 ## Getting Started
