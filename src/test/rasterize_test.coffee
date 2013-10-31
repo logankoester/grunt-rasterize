@@ -1,13 +1,20 @@
 grunt = require 'grunt'
+fs = require 'fs'
+path = require 'path'
+
+pngExists = (file, test) ->
+  test.expect 2
+  test.ok grunt.file.exists(file), 'should create a png file'
+  fs.stat file, (err, stats) ->
+    test.notEqual stats.size, 0, "#{file} should not be an empty file"
+    test.done()
 
 exports.environment =
-  setUp: (done) ->
-    done()
+  'rasterizing grunt-small.png': (test) ->
+    file = path.join 'test', 'grunt-small.png'
 
-  'rasterizing svg to png': (test) ->
-    test.expect 2
+    pngExists(file, test)
 
-    test.ok grunt.file.exists('test/grunt-small.png'), 'should create a png file'
-    test.ok grunt.file.exists('test/grunt-large.png'), 'should create a png file'
-
-    test.done()
+  'rasterizing grunt-large.png': (test) ->
+    file = path.join 'test', 'grunt-large.png'
+    pngExists(file, test)

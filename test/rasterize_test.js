@@ -1,17 +1,31 @@
 (function() {
-  var grunt;
+  var fs, grunt, path, pngExists;
 
   grunt = require('grunt');
 
-  exports.environment = {
-    setUp: function(done) {
-      return done();
-    },
-    'rasterizing svg to png': function(test) {
-      test.expect(2);
-      test.ok(grunt.file.exists('test/grunt-small.png'), 'should create a png file');
-      test.ok(grunt.file.exists('test/grunt-large.png'), 'should create a png file');
+  fs = require('fs');
+
+  path = require('path');
+
+  pngExists = function(file, test) {
+    test.expect(2);
+    test.ok(grunt.file.exists(file), 'should create a png file');
+    return fs.stat(file, function(err, stats) {
+      test.notEqual(stats.size, 0, "" + file + " should not be an empty file");
       return test.done();
+    });
+  };
+
+  exports.environment = {
+    'rasterizing grunt-small.png': function(test) {
+      var file;
+      file = path.join('test', 'grunt-small.png');
+      return pngExists(file, test);
+    },
+    'rasterizing grunt-large.png': function(test) {
+      var file;
+      file = path.join('test', 'grunt-large.png');
+      return pngExists(file, test);
     }
   };
 

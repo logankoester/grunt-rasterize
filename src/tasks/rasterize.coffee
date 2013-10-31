@@ -13,22 +13,21 @@ Inkscape = require 'inkscape'
 module.exports = (grunt) ->
   
   grunt.registerMultiTask 'rasterize', 'Convert a vector graphic into one or more raster images', ->
-    grunt.log.subhead "Rasterizing #{@data.vector}"
-    done = @async()
 
-    async.each @data.raster, (out) =>
+    rasterize = (out, done) =>
       grunt.log.write " -> #{out.path} "
-
       ink = new Inkscape([
         '--export-png',
         "--export-width=#{out.width}"
-      ])
+      ]).on 'end', -> done()
 
       out = fs.createWriteStream(out.path)
       fs.createReadStream(@data.vector).pipe(ink).pipe(out)
-
       grunt.log.ok()
-    , (err) -> grunt.fatal err if err
 
-    done()
-    grunt.log.writeln()
+    grunt.log.subhead "Rasterizing #{@data.vector}"
+
+    done = @async()
+    async.eachSeries @data.raster, rasterize, (err) ->
+      grunt.log.writeln()
+      done()

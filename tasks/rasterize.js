@@ -9,24 +9,24 @@
 
   module.exports = function(grunt) {
     return grunt.registerMultiTask('rasterize', 'Convert a vector graphic into one or more raster images', function() {
-      var done,
+      var done, rasterize,
         _this = this;
-      grunt.log.subhead("Rasterizing " + this.data.vector);
-      done = this.async();
-      async.each(this.data.raster, function(out) {
+      rasterize = function(out, done) {
         var ink;
         grunt.log.write(" -> " + out.path + " ");
-        ink = new Inkscape(['--export-png', "--export-width=" + out.width]);
+        ink = new Inkscape(['--export-png', "--export-width=" + out.width]).on('end', function() {
+          return done();
+        });
         out = fs.createWriteStream(out.path);
         fs.createReadStream(_this.data.vector).pipe(ink).pipe(out);
         return grunt.log.ok();
-      }, function(err) {
-        if (err) {
-          return grunt.fatal(err);
-        }
+      };
+      grunt.log.subhead("Rasterizing " + this.data.vector);
+      done = this.async();
+      return async.eachSeries(this.data.raster, rasterize, function(err) {
+        grunt.log.writeln();
+        return done();
       });
-      done();
-      return grunt.log.writeln();
     });
   };
 
