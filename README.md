@@ -43,6 +43,10 @@ grunt.initConfig({
 
 ## Release History
 
+#### 0.1.1
+
+* Fixes early termination (async bug)
+
 #### 0.1.0
 
 * Initial release
