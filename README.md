@@ -43,6 +43,10 @@ grunt.initConfig({
 
 ## Release History
 
+#### 0.1.2
+
+* Proper fix for async issues
+
 #### 0.1.1
 
 * Fixes early termination (async bug)
