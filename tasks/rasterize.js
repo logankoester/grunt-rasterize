@@ -22,10 +22,10 @@
         return grunt.log.ok();
       }, function(err) {
         if (err) {
-          grunt.fatal(err);
+          return grunt.fatal(err);
         }
-        return done();
       });
+      done();
       return grunt.log.writeln();
     });
   };

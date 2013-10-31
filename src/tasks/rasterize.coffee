@@ -28,9 +28,7 @@ module.exports = (grunt) ->
       fs.createReadStream(@data.vector).pipe(ink).pipe(out)
 
       grunt.log.ok()
-    , (err) ->
+    , (err) -> grunt.fatal err if err
 
-      grunt.fatal err if err
-      done()
-
+    done()
     grunt.log.writeln()
