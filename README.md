@@ -4,6 +4,8 @@
 [![Dependency Status](https://david-dm.org/logankoester/grunt-rasterize.png)](https://david-dm.org/logankoester/grunt-rasterize)
 [![devDependency Status](https://david-dm.org/logankoester/grunt-rasterize/dev-status.png)](https://david-dm.org/logankoester/grunt-rasterize#info=devDependencies)
 
+[![NPM](https://nodei.co/npm/grunt-rasterize.png?downloads=true)](https://nodei.co/npm/grunt-rasterize/)
+
 > Rasterize SVG graphics at various sizes using [Inkscape](http://inkscape.org/)
 
 ## Getting Started
