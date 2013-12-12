@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/logankoester/grunt-rasterize.png?branch=master)](https://travis-ci.org/logankoester/grunt-rasterize)
 [![Dependency Status](https://david-dm.org/logankoester/grunt-rasterize.png)](https://david-dm.org/logankoester/grunt-rasterize)
 [![devDependency Status](https://david-dm.org/logankoester/grunt-rasterize/dev-status.png)](https://david-dm.org/logankoester/grunt-rasterize#info=devDependencies)
+[![Gittip](http://img.shields.io/gittip/logankoester.png)](https://www.gittip.com/logankoester/)
 
 [![NPM](https://nodei.co/npm/grunt-rasterize.png?downloads=true)](https://nodei.co/npm/grunt-rasterize/)
 
