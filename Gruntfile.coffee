@@ -61,6 +61,8 @@ module.exports = (grunt) ->
         tagName: 'v%VERSION%'
         tagMessage: 'Version %VERSION%'
         push: false
+        signTags: true
+        signCommits: true
 
 
   # Actually load this plugin's task(s).
