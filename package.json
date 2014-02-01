@@ -1,7 +1,7 @@
 {
   "name": "grunt-rasterize",
   "description": "Rasterize SVG graphics at various sizes using Inkscape",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "homepage": "https://github.com/logankoester/grunt-rasterize",
   "author": {
     "name": "Logan Koester",
