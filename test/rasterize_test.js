@@ -26,6 +26,11 @@
       var file;
       file = path.join('test', 'grunt-large.png');
       return pngExists(file, test);
+    },
+    'rasterizing grunt-nowidth.png': function(test) {
+      var file;
+      file = path.join('test', 'grunt-nowidth.png');
+      return pngExists(file, test);
     }
   };
 

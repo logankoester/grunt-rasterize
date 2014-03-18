@@ -16,11 +16,13 @@ module.exports = (grunt) ->
 
     rasterize = (out, done) =>
       grunt.log.write " -> #{out.path} "
-      ink = new Inkscape([
-        '--export-png',
-        "--export-width=#{out.width}"
-      ]).on 'end', -> done()
 
+      if out.width
+        params = ['--export-png', "--export-width=#{out.width}"]
+      else
+        params = ['--export-png']
+
+      ink = new Inkscape(params).on 'end', -> done()
       out = fs.createWriteStream(out.path)
       fs.createReadStream(@data.vector).pipe(ink).pipe(out)
       grunt.log.ok()

@@ -19,7 +19,7 @@
           } else {
             params = ['--export-png'];
           }
-          ink = new Inkscape().on('end', function() {
+          ink = new Inkscape(params).on('end', function() {
             return done();
           });
           out = fs.createWriteStream(out.path);

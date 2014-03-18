@@ -14,6 +14,7 @@ module.exports = (grunt) ->
         raster: [
           { path: 'test/grunt-small.png', width: 36 }
           { path: 'test/grunt-large.png', width: 128 }
+          { path: 'test/grunt-nowidth.png' }
         ]
 
     nodeunit:

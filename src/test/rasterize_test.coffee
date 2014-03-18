@@ -12,9 +12,12 @@ pngExists = (file, test) ->
 exports.environment =
   'rasterizing grunt-small.png': (test) ->
     file = path.join 'test', 'grunt-small.png'
-
     pngExists(file, test)
 
   'rasterizing grunt-large.png': (test) ->
     file = path.join 'test', 'grunt-large.png'
+    pngExists(file, test)
+
+  'rasterizing grunt-nowidth.png': (test) ->
+    file = path.join 'test', 'grunt-nowidth.png'
     pngExists(file, test)
