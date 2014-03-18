@@ -12,9 +12,14 @@
       var done, rasterize;
       rasterize = (function(_this) {
         return function(out, done) {
-          var ink;
+          var ink, params;
           grunt.log.write(" -> " + out.path + " ");
-          ink = new Inkscape(['--export-png', "--export-width=" + out.width]).on('end', function() {
+          if (out.width) {
+            params = ['--export-png', "--export-width=" + out.width];
+          } else {
+            params = ['--export-png'];
+          }
+          ink = new Inkscape().on('end', function() {
             return done();
           });
           out = fs.createWriteStream(out.path);
