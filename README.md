@@ -49,7 +49,7 @@ grunt.initConfig({
 
 ## Release History
 
-#### 0.1.3
+#### 0.1.6
 
 * Width attribute is now optional (thanks [@ale110](https://github.com/ale110)!)
 
