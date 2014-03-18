@@ -39,7 +39,8 @@ grunt.initConfig({
       vector: 'example.svg',
       raster: [
         { path: 'example-small.png', width: 64 },
-        { path: 'example-large.png', width: 128 }
+        { path: 'example-large.png', width: 128 },
+        { path: 'example-nowidth.png' }
       ]
     },
   },
@@ -47,6 +48,10 @@ grunt.initConfig({
 ```
 
 ## Release History
+
+#### 0.1.3
+
+* Width attribute is now optional (thanks [@ale110](https://github.com/ale110)!)
 
 #### 0.1.2
 
